@@ -49,9 +49,22 @@ There are multiple ways to save the graph in R. However, we do not cover that pa
 
 # Problem 4
 
+Reproducible research suggests you talk the reader through what the problem or analysis is about.  For instance:
+
+In this problem, we are to choose an internal R dataset to summarize and plot.  I have chosen the mtcars dataset.  This dataset was collected to allow comparison between ....
+
+First, I will load and summarize the dataset:
+
 ```{r}
 # Loading the car dataset
-datasets::mtcars
+# datasets::mtcars ## this doesn't load the dataset, it actually prints it to screen
+
+# if you want to print data to screen, spend the extra 10 key strokes to make it look nice:
+knitr::kable(summary(mtcars))
+```
+
+Now that I know a bit about what the data structure looks like, I want to make a couple of plots:
+```{r}
 # Scatter plot for mpg vs hp
 graph_scatter = plot(mtcars$mpg, 
      mtcars$hp,
